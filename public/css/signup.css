@@ -1,0 +1,159 @@
+/* -----SIGN UP PAGE----- */
+.signup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  height: 65%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.signup .background {
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(180deg, #0c003c 0%, #bfffaf 100%),
+    linear-gradient(165deg, #480045 25%, #e9eaaf 100%),
+    linear-gradient(145deg, #480045 25%, #e9eaaf 100%),
+    linear-gradient(300deg, rgba(233, 223, 255, 0) 0%, #af89ff 100%),
+    linear-gradient(
+      90deg,
+      #45eba5 0%,
+      #45eba5 30%,
+      #21aba5 30%,
+      #21aba5 60%,
+      #1d566e 60%,
+      #1d566e 70%,
+      #163a5f 70%,
+      #163a5f 100%
+    );
+  background-blend-mode: overlay, overlay, overlay, multiply, normal;
+
+  /* background: linear-gradient(235deg, #BABC4A 0%, #000000 100%), linear-gradient(235deg, #0026AC 0%, #282534 100%), linear-gradient(235deg, #00FFD1 0%, #000000 100%), radial-gradient(120% 185% at 25% -25%, #EEEEEE 0%, #EEEEEE 40%, #7971EA calc(40% + 1px), #7971EA 50%, #393E46 calc(50% + 1px), #393E46 70%, #222831 calc(70% + 1px), #222831 100%), radial-gradient(70% 140% at 90% 10%, #F5F5C6 0%, #F5F5C6 30%, #7DA87B calc(30% + 1px), #7DA87B 60%, #326765 calc(60% + 1px), #326765 80%, #27253D calc(80% + 1px), #27253D 100%);
+    background-blend-mode: overlay, lighten, overlay, color-burn, normal; */
+}
+
+.signup .signup-form {
+  /* position: absolute;
+    left: 50%; */
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup .signup-form form {
+  padding: 5rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup .signup-form form h3 {
+  font-size: 1.131rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--txt-clr-dark);
+}
+
+.signup .signup-form form h3 span {
+  font-family: "Bad Script", cursive;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.signup .signup-form form p {
+  font-size: 0.751rem;
+  font-weight: 400;
+  text-align: center;
+  color: var(--txt-clr-dark);
+}
+
+.signup .signup-form form .input-group {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup .signup-form form .input-group .input {
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border-radius: 0.5rem;
+  outline: none;
+  color: var(--txt-clr-dark);
+  border: 1px solid var(--accent-clr);
+}
+
+.signup .signup-form form .input-group .placeholder {
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  font-size: 0.751rem;
+  padding: 0px 5px;
+  color: var(--txt-clr-light);
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  pointer-events: none;
+}
+
+.signup .signup-form form .input-group .input:focus {
+  caret-color: var(--dark-accent-clr);
+  border-color: var(--dark-accent-clr);
+}
+
+.signup .signup-form form .input-group .input:focus + .placeholder,
+.signup
+  .signup-form
+  form
+  .input-group
+  .input:not(:placeholder-shown)
+  + .placeholder {
+  top: -10px;
+  background-color: var(--bg);
+  color: var(--dark-accent-clr);
+}
+
+.signup .signup-form form button {
+  padding: 10px;
+  width: 100%;
+  background: var(--accent-clr);
+  border-radius: 0.6rem;
+  outline: none;
+  color: var(--white);
+  font-size: 0.791rem;
+  font-weight: 700;
+  border: none;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+
+.signup .signup-form form button:hover {
+  background: var(--dark-accent-clr);
+  cursor: pointer;
+}
+
+.signup .signup-form form p a:link,
+.signup .signup-form form p a:visited,
+.signup .signup-form form p a:active,
+.signup .signup-form form p a:hover {
+  color: var(--dark-accent-clr);
+}
+
+.signup .signup-form form p a:hover {
+  text-decoration: underline;
+}

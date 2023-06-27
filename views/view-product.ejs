@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KART | <%= title %></title>
+
+    <!-- GOOGLE ICONS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <!-- CSS STYLES -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/view-product.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <%- include("../partials/nav.ejs") %>
+
+    <!-- VIEW PRODUCT -->
+    <div class="view-product">
+      <div class="content">
+        <div class="left">
+          <div class="img">
+            <img src="<%= product.image %>" alt="Product image" />
+          </div>
+          <div class="details">
+            <div class="head">
+              <div class="left">
+                <p class="name"><%= product.productName %></p>
+                <p class="brand"><%= product.brandName %></p>
+              </div>
+              <div class="right">
+                <p class="price">₹ <%= product.price %></p>
+              </div>
+            </div>
+            <p class="stock">
+              In stock : <span><%= product.stockNumber %></span>
+            </p>
+          </div>
+        </div>
+        <div class="right">
+          <div class="product-desc">
+            <h3>Product description :</h3>
+            <p><%= product.description %></p>
+          </div>
+
+          <div class="actions">
+            <button class="btn" onclick="addToCart()">Add to cart</button>
+            <!-- <button class="btn">BUY NOW</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <%- include("../partials/footer.ejs") %>
+
+    <!-- JAVASCRIPT -->
+    <script>
+      function addToCart() {
+        // Extract the relevant details from the product
+        const productName = "<%= product.productName %>";
+        const price = "<%= product.price %>";
+        const image = "<%= product.image %>";
+
+        const request = new XMLHttpRequest();
+
+        request.open("POST", "/cart/add", true);
+        request.setRequestHeader("Content-Type", "application/json");
+
+        const data = JSON.stringify({ productName, price, image });
+
+        request.send(data);
+
+        request.onload = function () {
+          if (request.status === 200) {
+            // Item added to cart successfully.
+            alert("Item added to cart");
+          } else {
+            // There was an error adding the item to the cart.
+            alert("Failed to add item to cart");
+          }
+        };
+      }
+    </script>
+  </body>
+</html>

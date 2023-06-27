@@ -1,0 +1,157 @@
+/* -----DASHBOARD----- */
+.dashboard {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1.5rem;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard .cards-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 1.5rem;
+}
+
+.dashboard .cards-container .card {
+  padding: 1rem;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* background-color: var(--bg); */
+  border: 1px solid var(--dark-accent-clr);
+  border-radius: 0.3rem;
+}
+
+.dashboard .cards-container .card .upper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard .cards-container .card .upper .icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+  border-radius: 0.3rem;
+}
+
+.dashboard .cards-container .card .upper .icon span {
+  color: var(--accent-clr);
+}
+
+.dashboard .cards-container .card .upper .more {
+  position: relative;
+}
+
+.dashboard .cards-container .card .upper .more span {
+  color: #aaaaaa;
+}
+
+.dashboard .cards-container .card .upper .more .more-links {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  padding: 0.5rem 0.7rem;
+  min-width: 170px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background-color: var(--white);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 0.3rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+
+.dashboard .cards-container .card .upper .more .more-links span:hover {
+  cursor: pointer;
+}
+
+.dashboard .cards-container .card .upper .more .more-links.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dashboard .cards-container .card .upper .more .more-links a:link,
+.dashboard .cards-container .card .upper .more .more-links a:active,
+.dashboard .cards-container .card .upper .more .more-links a:visited {
+  padding: 0.5rem 1rem;
+  width: 100%;
+  font-size: 0.931rem;
+  font-weight: 500;
+  color: var(--txt-clr-dark);
+  border-radius: 0.3rem;
+}
+
+.dashboard .cards-container .card .upper .more .more-links a:hover {
+  background-color: var(--bg);
+  color: var(--dark-accent-clr);
+}
+
+.dashboard .cards-container .card .lower {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  line-height: 20px;
+  /* gap: 0.3rem; */
+}
+
+.dashboard .cards-container .card .lower h3 {
+  font-size: 0.931rem;
+  font-weight: 600;
+  text-align: left;
+  color: var(--txt-clr-dark);
+}
+
+.dashboard .cards-container .card .lower p {
+  font-size: 0.731rem;
+  font-weight: 500;
+  text-align: left;
+  color: var(--txt-clr-light);
+}
+
+.dashboard .cards-container .card .lower p span {
+  font-size: 1.351rem;
+  font-weight: 700;
+  color: var(--dark-accent-clr);
+}
+
+/* -----X-Small devices----- */
+@media (max-width: 600px) {
+  /* -----DASHBOARD----- */
+  .dashboard {
+    padding: 3rem 1.5rem;
+    width: 100%;
+  }
+
+  .dashboard .cards-container {
+    grid-template-columns: auto auto;
+  }
+}
+
+/* -----Small devices & Medium devices----- */
+@media (min-width: 601px) and (max-width: 992px) {
+  /* -----DASHBOARD----- */
+  .dashboard {
+    width: 75%;
+  }
+
+  .dashboard .cards-container {
+    grid-template-columns: auto auto auto;
+  }
+}

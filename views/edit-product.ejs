@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KART | <%= title %></title>
+
+    <!-- GOOGLE ICONS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <!-- CSS STYLES -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <style>
+      /* -----EDIT PRODUCT----- */
+      .edit-product {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1.5rem;
+        width: 85%;
+        /* height: 100%; */
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: start;
+        justify-content: left;
+        /* align-items: start;
+    justify-content: center; */
+      }
+
+      .edit-product h3 {
+        font-size: 1.131rem;
+        text-align: left;
+        font-weight: 800;
+        color: var(--txt-clr-dark);
+      }
+
+      .edit-product form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .edit-product form .input-group {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .edit-product form .input-group label {
+        font-size: 0.781rem;
+        text-align: left;
+        font-weight: 600;
+        color: var(--txt-clr-light);
+      }
+
+      .edit-product form .input-group label span {
+        font-size: 0.781rem;
+        text-align: left;
+        font-weight: 700;
+        color: var(--accent-clr);
+      }
+
+      .edit-product form .input-group input,
+      .edit-product form .input-group select,
+      .edit-product form .input-group textarea {
+        padding: 0.5rem 0.7rem;
+        min-width: 100%;
+        max-width: 100%;
+        background: none;
+        outline: none;
+        border: 1px solid #cacaca;
+        border-radius: 0.3rem;
+        font-size: 0.781rem;
+        text-align: left;
+        font-weight: 400;
+        color: var(--txt-clr-dark);
+      }
+
+      .edit-product form .input-group input:focus,
+      .edit-product form .input-group select:focus,
+      .edit-product form .input-group textarea:focus {
+        caret-color: var(--dark-accent-clr);
+        border-color: var(--accent-clr);
+      }
+
+      .edit-product form .input-group textarea {
+        min-height: 150px;
+        max-height: 500px;
+      }
+
+      .edit-product form button {
+        padding: 0.5rem 1.5rem;
+        width: fit-content;
+        font-size: 0.931rem;
+        text-align: center;
+        font-weight: 600;
+        color: var(--white);
+        background-color: var(--accent-clr);
+        border: none;
+        border-radius: 0.3rem;
+        transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+      }
+
+      .edit-product form button:hover {
+        background-color: var(--dark-accent-clr);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <%- include("../partials/sidebar.ejs") %>
+
+    <!-- EDIT PRODUCTS -->
+    <div class="edit-product">
+      <h3>Edit product</h3>
+
+      <form action="/update-product" method="post" enctype="multipart/form-data">
+
+        <!-- This will fetch the id to update the product -->
+        <input type="text" name="product_id" id="product_id" value="<%= product._id %>" hidden>
+        
+        <div class="input-group">
+          <label for="category">Product category : <span>*</span></label>
+          <select name="category" id="category" required>
+            <option value="hidden" selected disabled hidden>
+              Choose product category
+            </option>
+            <option value="Electronics">Electronics</option>
+            <option value="Fashion & Styles">Fashion & Styles</option>
+            <option value="Home">Home</option>
+            <option value="Stationary">Stationary</option>
+            <option value="Groceries">Groceries</option>
+          </select>
+        </div>
+
+        <br />
+
+        <div class="input-group">
+          <label for="productname">Product name : <span>*</span></label>
+          <input type="text" name="productname" id="productname" value="<%= product.productName %>" required />
+        </div>
+
+        <br />
+
+        <div class="input-group">
+          <label for="brandname">Brand name : <span>*</span></label>
+          <input type="text" name="brandname" id="brandname" value="<%= product.brandName %>" required />
+        </div>
+
+        <br />
+
+        <div class="input-group">
+          <label for="price">Product price (₹) : <span>*</span></label>
+          <input type="number" name="price" id="price" value="<%= product.price %>" required />
+        </div>
+
+        <br />
+
+        <div class="input-group">
+          <label for="stocknumber">Stock number : <span>*</span></label>
+          <input type="number" name="stocknumber" id="stocknumber" value="<%= product.stockNumber %>" required />
+        </div>
+
+        <br />
+
+        <div class="input-group">
+          <label for="image">Product image: <span>*</span></label>
+          <input type="file" name="image" accept=".png, .jpg, .jpeg" required />
+          <small style="font-size: 0.571rem; font-weight: 500; color: #ff0000"
+            >Note: PNG/JPG/JPEG only (Max file size: 2MB)</small
+          >
+        </div>
+
+        <br />
+
+        <div class="input-group">
+          <label for="desc">Product description : <span>*</span></label>
+          <textarea name="desc" id="desc" required><%= product.description %></textarea>
+        </div>
+
+        <br />
+
+        <button type="submit">Save Changes</button>
+      </form>
+    </div>
+  </body>
+</html>

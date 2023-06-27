@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KART | <%= title %></title>
+
+    <!-- GOOGLE ICONS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <!-- CSS STYLES -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css" />
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <%- include("../partials/sidebar.ejs") %>
+
+    <!-- DASHBOARD -->
+    <div class="dashboard">
+      <div class="cards-container">
+        <!-- ELECTRONICS CARD -->
+        <div class="card">
+          <div class="upper">
+            <div class="icon">
+              <span class="material-symbols-outlined">
+                local_convenience_store
+              </span>
+            </div>
+            <div class="more">
+              <span class="material-symbols-outlined" style="cursor: pointer;"> more_vert </span>
+              <div class="more-links" id="more-links-modal">
+                <a href="/view-electronics">View products</a>
+              </div>
+            </div>
+          </div>
+          <div class="lower">
+            <h3>Electronics</h3>
+            <p>Total products:&nbsp;&nbsp;&nbsp; <span><%= electronicsCount ? electronicsCount : 0 %></span></p>
+          </div>
+        </div>
+        <!-- FASHION & STYLES CARD -->
+        <div class="card">
+          <div class="upper">
+            <div class="icon">
+              <span class="material-symbols-outlined">
+                local_convenience_store
+              </span>
+            </div>
+            <div class="more">
+              <span class="material-symbols-outlined" style="cursor: pointer;"> more_vert </span>
+              <div class="more-links">
+                <a href="/view-fashions">View products</a>
+              </div>
+            </div>
+          </div>
+          <div class="lower">
+            <h3>Fashion & Styles</h3>
+            <p>Total products:&nbsp;&nbsp;&nbsp; <span><%= fashionCount ? fashionCount : 0 %></span></p>
+          </div>
+        </div>
+        <!-- HOME CARD -->
+        <div class="card">
+          <div class="upper">
+            <div class="icon">
+              <span class="material-symbols-outlined">
+                local_convenience_store
+              </span>
+            </div>
+            <div class="more">
+              <span class="material-symbols-outlined" style="cursor: pointer;"> more_vert </span>
+              <div class="more-links">
+                <a href="/view-home">View products</a>
+              </div>
+            </div>
+          </div>
+          <div class="lower">
+            <h3>Home</h3>
+            <p>Total products:&nbsp;&nbsp;&nbsp; <span><%= homeCount ? homeCount : 0 %></span></p>
+          </div>
+        </div>
+        <!-- STATIONARY CARD -->
+        <div class="card">
+          <div class="upper">
+            <div class="icon">
+              <span class="material-symbols-outlined">
+                local_convenience_store
+              </span>
+            </div>
+            <div class="more">
+              <span class="material-symbols-outlined" style="cursor: pointer;"> more_vert </span>
+              <div class="more-links">
+                <a href="/view-stationary">View products</a>
+              </div>
+            </div>
+          </div>
+          <div class="lower">
+            <h3>Stationary</h3>
+            <p>Total products:&nbsp;&nbsp;&nbsp; <span><%= stationaryCount ? stationaryCount : 0 %></span></p>
+          </div>
+        </div>
+        <!-- GROCERIES CARD -->
+        <div class="card">
+          <div class="upper">
+            <div class="icon">
+              <span class="material-symbols-outlined">
+                local_convenience_store
+              </span>
+            </div>
+            <div class="more">
+              <span class="material-symbols-outlined" style="cursor: pointer;"> more_vert </span>
+              <div class="more-links">
+                <a href="/view-groceries">View products</a>
+              </div>
+            </div>
+          </div>
+          <div class="lower">
+            <h3>Groceries</h3>
+            <p>Total products:&nbsp;&nbsp;&nbsp; <span><%= groceriesCount ? groceriesCount : 0 %></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+      const moreIcons = document.querySelectorAll(".more");
+      moreIcons.forEach(function (moreIcon) {
+        moreIcon.addEventListener("click", function () {
+          const moreLinks = this.querySelector(".more-links");
+          moreLinks.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>

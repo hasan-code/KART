@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KART | <%= title %></title>
+
+    <!-- GOOGLE ICONS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <!-- CSS STYLES -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/products.css" />
+    
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <%- include("../partials/nav.ejs") %>
+
+    <!-- PRODUCTS -->
+    <div class="products">
+      <% for (const product of electronicsProducts) { %>
+      <div class="card">
+        <div class="img">
+          <img src="<%= product.image %>" alt="Product image" />
+        </div>
+        <div class="details">
+          <div class="top">
+            <div class="left">
+              <p class="product-name"><%= product.productName %></p>
+              <p class="brand-name"><%= product.brandName %></p>
+            </div>
+            <div class="right">
+              <p class="price">₹ <%= product.price %></p>
+            </div>
+          </div>
+          <p class="stock">
+            In stock : <span><%= product.stockNumber %></span>
+          </p>
+
+          <a href="/view-product?id=<%= product._id %>" class="btn"
+            >View Product</a
+          >
+        </div>
+      </div>
+      <% } %>
+    </div>
+
+    <!-- FOOTER -->
+    <%- include("../partials/footer.ejs") %>
+  </body>
+</html>

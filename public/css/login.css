@@ -1,0 +1,137 @@
+/* -----LOGIN PAGE----- */
+body {
+    background: rgb(238,174,202);
+    background: -moz-radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeaeca",endColorstr="#94bbe9",GradientType=1);
+}
+
+
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.login .login-form {
+  /* position: absolute;
+    left: 50%; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.login .login-form form {
+  padding: 5rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login .login-form form h3 {
+  font-size: 1.131rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--txt-clr-dark);
+}
+
+.login .login-form form p {
+  font-size: 0.751rem;
+  font-weight: 400;
+  text-align: center;
+  color: var(--txt-clr-dark);
+}
+
+
+.login .login-form form .input-group {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login .login-form form .input-group .input {
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border-radius: 0.5rem;
+  outline: none;
+  color: var(--txt-clr-dark);
+  border: 1px solid var(--accent-clr);
+}
+
+.login .login-form form .input-group .placeholder {
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  font-size: 0.751rem;
+  padding: 0px 5px;
+  color: var(--txt-clr-light);
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  pointer-events: none;
+}
+
+.login .login-form form .input-group .input:focus {
+  caret-color: var(--dark-accent-clr);
+  border-color: var(--dark-accent-clr);
+}
+
+.login .login-form form .input-group .input:focus + .placeholder,
+.login
+  .login-form
+  form
+  .input-group
+  .input:not(:placeholder-shown)
+  + .placeholder {
+  top: -10px;
+  background-color: var(--white);
+  color: var(--dark-accent-clr);
+}
+
+.login .login-form form button {
+  padding: 10px;
+  width: 100%;
+  background: var(--accent-clr);
+  border-radius: 0.6rem;
+  outline: none;
+  color: var(--white);
+  font-size: 0.791rem;
+  font-weight: 700;
+  border: none;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+
+.login .login-form form button:hover {
+  background: var(--dark-accent-clr);
+  cursor: pointer;
+}
+
+
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}

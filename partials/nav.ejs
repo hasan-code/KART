@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- GOOGLE ICONS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <!-- CSS STYLES -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/nav.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav>
+      <!-- MENU -->
+      <div class="menu">
+        <span class="material-symbols-outlined" id="menu-icon">
+          menu
+          </span>
+          <span class="material-symbols-outlined" id="close-icon">
+            close
+            </span>
+      </div>
+
+      <!-- All LInks - LEFT -->
+      <div class="links-container" id="links-container">
+        <div class="links">
+          <p>Products</p>
+          <span class="material-symbols-outlined"> expand_more </span></a>
+          <!-- SUB-LINKS : DISPLAY ON HOVER -->
+          <div class="sub-links">
+            <a href="/electronics">Electronics</a>
+            <a href="/fashion-and-styles">Fashion & Styles</a>
+            <a href="/home">Home</a>
+            <a href="/stationary">Stationary</a>
+            <a href="/groceries">Groceries</a>
+          </div>
+        </div>
+        <div class="links">
+          <a href="/about">About us</a>
+        </div>
+        <div class="links">
+          <a href="/contact">Contact us</a>
+        </div>
+      </div>
+
+      <!-- LOGO - MIDDLE -->
+      <div class="logo">
+        <a href="/">KART</a>
+      </div>
+
+      <!-- USER ACCOUNT, SEARCH - RIGHT -->
+      <div class="right-container">
+        <div id="cart">
+          <a href="/cart"><span class="material-symbols-outlined">
+            shopping_cart
+            </span>
+            <div class="cart-items" <% if (cartItems.length === 0) { %>style="display: none;"<% } %>>
+              <p><%= cartItems.length %></p>
+            </div></a>
+        </div>
+        
+        <div class="user-icon" id="user-icon">
+          <span class="material-symbols-outlined"> account_circle </span>
+          <div class="user-icon-modal" id="user-icon-modal">
+            <a href="/login">User Login</a>
+            <a href="/dashboard">Admin Panel</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <script>
+      // Toggle User Modal in NAVBAR
+      const userIcon = document.getElementById("user-icon");
+      const userIconModal = document.getElementById("user-icon-modal");
+
+      userIcon.addEventListener("click", () => {
+        userIconModal.classList.toggle("active");
+      });
+
+
+      // Toggle Navbar in mobile
+      const menuIcon = document.getElementById("menu-icon");
+      const closeIcon = document.getElementById("close-icon");
+      const linksContainer = document.getElementById("links-container");
+
+      menuIcon.addEventListener("click", () => {
+        menuIcon.style.display = "none";
+        closeIcon.style.display = "block";
+        linksContainer.classList.toggle("active");
+      });
+
+      closeIcon.addEventListener("click", () => {
+        menuIcon.style.display = "block";
+        closeIcon.style.display = "none";
+        linksContainer.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

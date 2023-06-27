@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KART | <%= title %></title>
+
+    <!-- GOOGLE ICONS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <!-- CSS STYLES -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/add-products.css" />
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <%- include("../partials/sidebar.ejs") %>
+
+    <!-- ADD PRODUCTS -->
+    <div class="add-products">
+      <h3>Add products</h3>
+
+      <form action="/add-products" method="post" enctype="multipart/form-data">
+        <div class="input-group">
+          <label for="category">Product category : <span>*</span></label>
+          <select name="category" id="category" required>
+            <option value="hidden" selected disabled hidden>
+              Choose product category
+            </option>
+            <option value="Electronics">Electronics</option>
+            <option value="Fashion & Styles">Fashion & Styles</option>
+            <option value="Home">Home</option>
+            <option value="Stationary">Stationary</option>
+            <option value="Groceries">Groceries</option>
+          </select>
+        </div>
+
+        <br />
+
+        <div class="input-group">
+          <label for="productname">Product name : <span>*</span></label>
+          <input type="text" name="productname" id="productname" required />
+        </div>
+
+        <br />
+
+        <div class="input-group">
+          <label for="brandname">Brand name : <span>*</span></label>
+          <input type="text" name="brandname" id="brandname" required />
+        </div>
+
+        <br />
+
+        <div class="input-group">
+          <label for="price">Product price (₹) : <span>*</span></label>
+          <input type="number" name="price" id="price" required />
+        </div>
+
+        <br />
+
+        <div class="input-group">
+          <label for="stocknumber">Stock number : <span>*</span></label>
+          <input type="number" name="stocknumber" id="stocknumber" required />
+        </div>
+
+        <br />
+
+        <div class="input-group">
+          <label for="image">Product image: <span>*</span></label>
+          <input type="file" name="image" accept=".png, .jpg, .jpeg" required />
+          <small style="font-size: 0.571rem; font-weight: 500; color: #ff0000"
+            >Note: PNG/JPG/JPEG only (Max file size: 2MB)</small
+          >
+        </div>
+
+        <br />
+
+        <div class="input-group">
+          <label for="desc">Product description : <span>*</span></label>
+          <textarea name="desc" id="desc" required></textarea>
+        </div>
+
+        <br />
+
+        <button type="submit">Add Product</button>
+      </form>
+    </div>
+  </body>
+</html>

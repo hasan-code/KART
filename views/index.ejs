@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KART | <%= title %></title>
+
+    <!-- GOOGLE ICONS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <!-- CSS STYLES -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <%- include("../partials/nav.ejs") %>
+
+    <!-- CAROUSEL -->
+    <div class="carousel">
+      <div class="carousel-slide">
+        <div class="carousel-image">
+          <img src="assets/images/banana.jpeg" alt="Image" />
+        </div>
+        <div class="carousel-image">
+          <img src="assets/images/desk.jpeg" alt="Image" />
+        </div>
+        <div class="carousel-image">
+          <img src="assets/images/imac.jpeg" alt="Image" />
+        </div>
+        <div class="carousel-image">
+          <img src="assets/images/laptop.jpeg" alt="Image" />
+        </div>
+        <div class="carousel-image">
+          <img src="assets/images/suits.jpeg" alt="Image" />
+        </div>
+        <div class="carousel-image">
+          <img src="assets/images/sunglasses.jpeg" alt="Image" />
+        </div>
+        <div class="carousel-image">
+          <img src="assets/images/sofa.jpeg" alt="Image" />
+        </div>
+        <div class="carousel-image">
+          <img src="assets/images/tablet.jpeg" alt="Image" />
+        </div>
+        <div class="carousel-image">
+          <img src="assets/images/vegetables.jpeg" alt="Image" />
+        </div>
+      </div>
+      <button class="carousel-prev">
+        <span class="material-symbols-outlined"> arrow_circle_left </span>
+      </button>
+      <button class="carousel-next">
+        <span class="material-symbols-outlined"> arrow_circle_right </span>
+      </button>
+    </div>
+
+    <!-- PRODUCT CATEGORIES -->
+    <section class="product-categories">
+      <p class="title">Categories</p>
+      <div class="category-container">
+        <!-- Electronics -->
+        <a href="/electronics">
+          <div class="category">
+            <div class="img">
+              <img src="/assets/images/tablet.jpeg" alt="Product image" />
+            </div>
+            <div class="category-name">
+              <p>Electronics</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Fashion & Styles -->
+        <a href="/fashion-and-styles">
+          <div class="category">
+            <div class="img">
+              <img src="/assets/images/sunglasses.jpeg" alt="Product image" />
+            </div>
+            <div class="category-name"><p>Fashion & Styles</p></div>
+          </div>
+        </a>
+
+        <!-- Home -->
+        <a href="/home">
+          <div class="category">
+            <div class="img">
+              <img src="/assets/images/sofa.jpeg" alt="Product image" />
+            </div>
+            <div class="category-name"><p>Home</p></div>
+          </div>
+        </a>
+
+        <!-- Stationary -->
+        <a href="/stationary">
+          <div class="category">
+            <div class="img">
+              <img src="/assets/images/men-shoes.jpeg" alt="Product image" />
+            </div>
+            <div class="category-name"><p>Stationary</p></div>
+          </div>
+        </a>
+
+        <!-- Groceries -->
+        <a href="/groceries">
+          <div class="category">
+            <div class="img">
+              <img src="/assets/images/vegetables.jpeg" alt="Product image" />
+            </div>
+            <div class="category-name"><p>Groceries</p></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- PRODUCT DISPLAY FOR EACH CATEGORIES -->
+    <!-- Electronics -->
+    <section class="product-display">
+      <div class="title">Electronics</div>
+      <div class="cards-container">
+        <% for (const product of electronicsProducts) { %>
+        <div class="product-card">
+          <div class="card-img">
+            <img src="<%= product.image %>" alt="Product image" />
+          </div>
+          <div class="product-details">
+            <div class="head">
+              <div class="left">
+                <p class="product-name"><%= product.productName %></p>
+                <p class="brand-name"><%= product.brandName %></p>
+              </div>
+              <div class="right">
+                <p class="price">₹ <%= product.price %></p>
+              </div>
+            </div>
+
+            <p class="stock">In stock : <span><%= product.stockNumber %></span></p>
+
+            <a href="/view-product?id=<%= product._id %>" class="btn">View Product</a>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </section>
+
+    <!-- FASHION & STYLES -->
+    <section class="product-display">
+      <div class="title">Fashion & Styles</div>
+      <div class="cards-container">
+        <% for (const product of fashionProducts) { %>
+        <div class="product-card">
+          <div class="card-img">
+            <img src="<%= product.image %>" alt="Product image" />
+          </div>
+          <div class="product-details">
+            <div class="head">
+              <div class="left">
+                <p class="product-name"><%= product.productName %></p>
+                <p class="brand-name"><%= product.brandName %></p>
+              </div>
+              <div class="right">
+                <p class="price">₹ <%= product.price %></p>
+              </div>
+            </div>
+
+            <p class="stock">In stock : <span><%= product.stockNumber %></span></p>
+
+            <a href="/view-product/<%= product._id %>" class="btn">View Product</a>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </section>
+
+    <!-- HOME -->
+    <section class="product-display">
+      <div class="title">Home</div>
+      <div class="cards-container">
+        <% for (const product of homeProducts) { %>
+        <div class="product-card">
+          <div class="card-img">
+            <img src="<%= product.image %>" alt="Product image" />
+          </div>
+          <div class="product-details">
+            <div class="head">
+              <div class="left">
+                <p class="product-name"><%= product.productName %></p>
+                <p class="brand-name"><%= product.brandName %></p>
+              </div>
+              <div class="right">
+                <p class="price">₹ <%= product.price %></p>
+              </div>
+            </div>
+
+            <p class="stock">In stock : <span><%= product.stockNumber %></span></p>
+
+            <a href="/view-product/<%= product._id %>" class="btn">View Product</a>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </section>
+
+    <!-- Stationary -->
+    <section class="product-display">
+      <div class="title">Stationary</div>
+      <div class="cards-container">
+        <% for (const product of stationaryProducts) { %>
+        <div class="product-card">
+          <div class="card-img">
+            <img src="<%= product.image %>" alt="Product image" />
+          </div>
+          <div class="product-details">
+            <div class="head">
+              <div class="left">
+                <p class="product-name"><%= product.productName %></p>
+                <p class="brand-name"><%= product.brandName %></p>
+              </div>
+              <div class="right">
+                <p class="price">₹ <%= product.price %></p>
+              </div>
+            </div>
+
+            <p class="stock">In stock : <span><%= product.stockNumber %></span></p>
+
+            <a href="/view-product/<%= product._id %>" class="btn">View Product</a>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </section>
+
+    <!-- Groceries -->
+    <section class="product-display">
+      <div class="title">Groceries</div>
+      <div class="cards-container">
+        <% for (const product of groceriesProducts) { %>
+        <div class="product-card">
+          <div class="card-img">
+            <img src="<%= product.image %>" alt="Product image" />
+          </div>
+          <div class="product-details">
+            <div class="head">
+              <div class="left">
+                <p class="product-name"><%= product.productName %></p>
+                <p class="brand-name"><%= product.brandName %></p>
+              </div>
+              <div class="right">
+                <p class="price">₹ <%= product.price %></p>
+              </div>
+            </div>
+
+            <p class="stock">In stock : <span><%= product.stockNumber %></span></p>
+
+            <a href="/view-product/<%= product._id %>" class="btn">View Product</a>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <%- include("../partials/footer.ejs") %>
+
+    <!-- JAVASCRIPT -->
+    <script>
+      const carousel = document.querySelector(".carousel");
+      const carouselSlide = carousel.querySelector(".carousel-slide");
+      const carouselImages = carousel.querySelectorAll(".carousel-image");
+      const prevBtn = carousel.querySelector(".carousel-prev");
+      const nextBtn = carousel.querySelector(".carousel-next");
+
+      let currentIndex = 0;
+      let interval;
+
+      // Show the current slide and update the indicators
+      function showSlide(index) {
+        carouselSlide.style.transform = `translateX(-${
+          (index * 100) / carouselImages.length
+        }%)`;
+        indicators.forEach((indicator, i) => {
+          if (i === index) {
+            indicator.classList.add("active");
+          } else {
+            indicator.classList.remove("active");
+          }
+        });
+      }
+
+      // Navigate to the next slide
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % carouselImages.length;
+        showSlide(currentIndex);
+      }
+
+      // Navigate to the previous slide
+      function prevSlide() {
+        currentIndex =
+          (currentIndex - 1 + carouselImages.length) % carouselImages.length;
+        showSlide(currentIndex);
+      }
+
+      // Start the automatic slideshow
+      function startSlideShow() {
+        interval = setInterval(() => {
+          nextSlide();
+        }, 5000);
+      }
+
+      // Stop the automatic slideshow
+      function stopSlideShow() {
+        clearInterval(interval);
+      }
+
+      // Handle click on prev button
+      prevBtn.addEventListener("click", () => {
+        prevSlide();
+        stopSlideShow();
+      });
+
+      // Handle click on next button
+      nextBtn.addEventListener("click", () => {
+        nextSlide();
+        stopSlideShow();
+      });
+
+      // Start the automatic slideshow
+      startSlideShow();
+    </script>
+  </body>
+</html>

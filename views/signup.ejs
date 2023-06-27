@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KART | <%= title %></title>
+
+    <!-- GOOGLE ICONS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <!-- CSS STYLES -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/signup.css" />
+  </head>
+  <body>
+    <!-- SIGN UP PAGE -->
+    <div class="signup">
+      <div class="background"></div>
+
+      <!-- SIGNUP FORM -->
+      <div class="signup-form">
+        <form action="" method="post" autocomplete="off">
+          <h3>Welcome to <span>KART!</span></h3>
+          <p>Please enter your details below.</p>
+
+          <br />
+
+          <div class="input-group">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="input"
+              placeholder=" "
+            />
+            <label for="name" class="placeholder">Fullname</label>
+          </div>
+
+          <br />
+
+          <div class="input-group">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="input"
+              placeholder=" "
+            />
+            <label for="email" class="placeholder">Email</label>
+          </div>
+
+          <br />
+
+          <div class="input-group">
+            <input
+              type="tel"
+              name="phonenumber"
+              id="phonenumber"
+              class="input"
+              placeholder=" "
+            />
+            <label for="phonenumber" class="placeholder">Phone number</label>
+          </div>
+
+          <br>
+
+          <div class="input-group">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="input"
+              placeholder=" "
+            />
+            <label for="password" class="placeholder">Password</label>
+          </div>
+
+          <br />
+
+          <div class="input-group">
+            <input
+              type="password"
+              name="confirmpassword"
+              id="confirmpassword"
+              class="input"
+              placeholder=" "
+            />
+            <label for="confirmpassword" class="placeholder"
+              >Confirm password</label
+            >
+          </div>
+
+          <br />
+
+          <button type="submit">Signup</button>
+
+          <br />
+
+          <p>Already have an account? &nbsp; <a href="/login">Login.</a></p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

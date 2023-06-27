@@ -1,0 +1,207 @@
+/* -----CART----- */
+.cart-container {
+  padding: 1.5rem 5%;
+  width: 100%;
+  min-height: 80%;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.cart-container .cart-items {
+  width: 70%;
+}
+
+table {
+  width: 100%;
+  border: 1px solid var(--dark-accent-clr);
+  border-radius: 0.3rem;
+}
+
+table thead {
+  background-color: var(--accent-clr);
+}
+
+table thead th {
+  padding: 0.5rem;
+  font-size: 0.931rem;
+  font-weight: 700;
+  text-align: left;
+  color: var(--white);
+}
+
+table thead th:first-child {
+  border-top-left-radius: 0.3rem;
+}
+
+table thead th:last-child {
+  border-top-right-radius: 0.3rem;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: var(--bg);
+}
+
+table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 0.3rem;
+}
+
+table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 0.3rem;
+}
+
+table tbody tr td {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.891rem;
+  font-weight: 500;
+}
+
+table tbody tr td .img {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  table tbody tr td .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+table tbody tr td a {
+  padding: 0.3rem;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--accent-clr);
+  border-radius: 0.3rem;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+
+table tbody tr td a span {
+  font-size: 0.931rem;
+}
+
+table tbody tr td a:link,
+table tbody tr td a:visited,
+table tbody tr td a:active,
+table tbody tr td a:hover {
+  color: var(--white);
+  font-size: 0.891rem;
+  font-weight: 500;
+}
+
+table tbody tr td a:hover {
+  color: var(--txt-clr-dark);
+  background-color: var(--dark-accent-clr);
+  cursor: pointer;
+}
+
+
+.cart-container .order-summary {
+    padding-bottom: 1.5rem;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: var(--bg);
+    border: 1px solid var(--accent-clr);
+    border-radius: 0.3rem;
+}
+
+.cart-container .order-summary h3 {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--accent-clr);
+    border-radius: 0.3rem 0.3rem 0 0;
+    font-size: 1.131rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.cart-container .order-summary ul {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    list-style-type: none;
+}
+
+.cart-container .order-summary ul li {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.931rem;
+    font-weight: 600;
+    color: var(--txt-clr-dark);
+}
+
+
+.cart-container .order-summary .separator {
+    width: 100%;
+    height: 1px;
+    padding: 0rem 1rem;
+    background: linear-gradient(90deg, rgba(105, 105, 105, 0) 0%, #696969 50%, rgba(105, 105, 105, 0) 100%);
+}
+
+.cart-container .order-summary .total {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart-container .order-summary .total p {
+    font-size: 0.931rem;
+    font-weight: 800;
+    color: var(--dark-accent-clr);
+}
+
+.cart-container .order-summary .total span {
+    font-size: 0.971rem;
+    font-weight: 900;
+    color: var(--dark-accent-clr);
+}
+
+.cart-container .order-summary .checkout {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-container .order-summary .checkout a:link,
+.cart-container .order-summary .checkout a:active,
+.cart-container .order-summary .checkout a:visited {
+    padding: 0.5rem 1.5rem;
+    width: fit-content;
+    font-size: 0.931rem;
+    text-align: center;
+    font-weight: 900;
+    color: var(--white);
+    background-color: var(--accent-clr);
+    border-radius: 0.3rem;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+
+.cart-container .order-summary .checkout a:hover {
+    background-color: var(--dark-accent-clr);
+    cursor: pointer;
+}

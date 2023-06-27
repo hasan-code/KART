@@ -1,0 +1,144 @@
+/* -----FOOTER----- */
+footer {
+  padding: 3rem 9rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-between;
+  background-color: var(--txt-clr-dark);
+}
+
+footer .left {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: left;
+  line-height: 24px;
+}
+
+footer .left a:link,
+footer .left a:active,
+footer .left a:visited,
+footer .left a:hover {
+  font-family: "Bad Script", cursive;
+  font-size: 1.351rem;
+  text-align: center;
+  font-weight: 400;
+  color: var(--white);
+}
+
+footer .left p {
+  font-size: 0.791rem;
+  text-align: left;
+  font-weight: 400;
+  color: var(--white);
+}
+
+footer .left ul {
+  list-style: none;
+  text-decoration: none;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: left;
+}
+
+footer .left ul li a {
+  width: 32px;
+  height: 32px;
+  background-color: var(--white);
+  border-radius: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+footer .left ul li #github-icon:hover {
+  background: #070709;
+}
+
+footer .left ul li #linkedin-icon:hover {
+  background: #0085ae;
+}
+
+footer .left ul li #instagram-icon:hover {
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+}
+
+footer .left ul li #twitter-icon:hover {
+  background: #00acee;
+}
+
+footer .left ul li a:hover svg path {
+  fill: var(--white);
+}
+
+footer .right {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: left;
+}
+
+footer .right ul {
+  list-style: none;
+  text-decoration: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: left;
+}
+
+footer .right ul li a:link,
+footer .right ul li a:active,
+footer .right ul li a:visited,
+footer .right ul li a:hover {
+  font-size: 0.791rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+footer .right ul li a:hover {
+  text-decoration: underline;
+  color: var(--accent-clr);
+}
+
+/* -----X-Small devices----- */
+@media (max-width: 600px) {
+  footer {
+    padding: 3rem 1.5rem;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  footer .left {
+    width: 50%;
+    line-height: 20px;
+  }
+
+  footer .right {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* -----Small devices & Medium devices----- */
+@media (min-width: 601px) and (max-width: 992px) {
+  footer {
+    padding: 3rem;
+  }
+}

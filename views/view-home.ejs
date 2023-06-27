@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KART | <%= title %></title>
+
+    <!-- GOOGLE ICONS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <!-- CSS STYLES -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <style>
+      .view-home-products {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1.5rem;
+        width: 85%;
+      }
+
+      table {
+        width: 100%;
+        border: 1px solid var(--dark-accent-clr);
+        border-radius: 0.3rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+      }
+
+      table thead {
+        background-color: var(--accent-clr);
+      }
+
+      table thead th {
+        padding: 0.5rem;
+        font-size: 0.931rem;
+        font-weight: 700;
+        text-align: left;
+        color: var(--white);
+      }
+
+      table thead th:first-child {
+        border-top-left-radius: 0.3rem;
+      }
+
+      table thead th:last-child {
+        border-top-right-radius: 0.3rem;
+      }
+
+      table tbody tr:nth-child(even) {
+        background-color: var(--bg);
+      }
+
+      table tbody tr:last-child td:first-child {
+        border-bottom-left-radius: 0.3rem;
+      }
+
+      table tbody tr:last-child td:last-child {
+        border-bottom-right-radius: 0.3rem;
+      }
+
+      table tbody tr td {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.891rem;
+        font-weight: 500;
+      }
+
+      table tbody tr td .img {
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      table tbody tr td .img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      table tbody tr td a {
+        padding: 0.3rem;
+        width: fit-content;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        /* background-color: var(--accent-clr);
+        border-radius: 0.3rem; */
+        transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+      }
+
+      table tbody tr td a span {
+        font-size: 0.931rem;
+      }
+
+      table tbody tr td a:link,
+      table tbody tr td a:visited,
+      table tbody tr td a:active,
+      table tbody tr td a:hover {
+        color: var(--white);
+        font-size: 0.891rem;
+        font-weight: 500;
+      }
+
+      table tbody tr td a:hover {
+        /* color: var(--txt-clr-dark);
+        background-color: var(--dark-accent-clr); */
+        cursor: pointer;
+      }
+
+      /* -----X-Small devices----- */
+      @media (max-width: 600px) {
+        .view-home-products {
+          padding: 3rem 1.5rem;
+          width: 100%;
+        }
+      }
+      /* -----Small devices & Medium devices----- */
+      @media (min-width: 601px) and (max-width: 992px) {
+        .view-home-products {
+          width: 65%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <%- include("../partials/sidebar.ejs") %>
+
+    <!-- VIEW HOME PRODUCTS -->
+    <div class="view-home-products">
+      <table>
+        <thead>
+          <tr>
+            <th>Product ID</th>
+            <th style="text-align: center;">Product Image</th>
+            <th>Product Name</th>
+            <th>Brand Name</th>
+            <th style="text-align: center;">Price (₹)</th>
+            <th style="text-align: center;">Stock Number</th>
+            <th style="text-align: center;">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for (const product of homeProducts) { %>
+          <tr>
+            <td><%= product._id %></td>
+            <td style="text-align: center;">
+              <div class="img">
+                <img src="<%= product.image %>" alt="Product Image" />
+              </div>
+            </td>
+            <td><%= product.productName %></td>
+            <td><%= product.brandName %></td>
+            <td style="text-align: center;">₹ <span><%= product.price %></span></td>
+            <td style="text-align: center;"><%= product.stockNumber %></td>
+            <td style="text-align: center; display: flex; flex-direction: row; align-items: center; gap: 0.5rem;">
+              <a href="/edit-product?id=<%= product._id %>">
+                <span class="material-symbols-outlined" style="color: #00ff00;"> edit </span>
+              </a>
+              <a href="/delete?id=<%= product._id %>">
+                <span class="material-symbols-outlined" style="color: #ff0000;"> delete </span>
+              </a>
+            </td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- JAVASCRIPT -->
+  </body>
+</html>
